@@ -1,0 +1,27 @@
+name: mat_classifier
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.12
+  - bcftools
+  - samtools
+  - bowtie2
+  - pmdtools
+  - pysam
+  - biopython
+  - numpy
+  - pandas
+  - scipy
+  - scikit-learn
+  - plotly
+  - psutil
+  - tqdm
+  - colorama
+  - ncbi-datasets-cli
+  - pip
+  - pip:
+      - ete3
+      - kaleido
+

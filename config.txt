@@ -1,0 +1,43 @@
+# Sample Table
+# CAUTION: don't use "=" in the names
+# Format - sample name \t merged fastq filename \t kraken report name 
+sample1	test_data/sample1_trimmed.fastq.gz	test_data/kraken_sample1_report
+sample2	test_data/sample2_trimmed.fastq.gz	test_data/kraken_sample2_report
+sample3	test_data/sample3_trimmed.fastq.gz	test_data/kraken_sample3_report
+sample4	test_data/sample4_trimmed.fastq.gz	test_data/kraken_sample4_report
+sample5	test_data/sample5_trimmed.fastq.gz	test_data/kraken_sample5_report
+sample6	test_data/sample6_trimmed.fastq.gz	test_data/kraken_sample6_report
+sample7	test_data/sample7_trimmed.fastq.gz	test_data/kraken_sample7_report
+sample8	test_data/sample8_trimmed.fastq.gz	test_data/kraken_sample8_report
+sample9	test_data/sample9_trimmed.fastq.gz	test_data/kraken_sample9_report
+sample10	test_data/sample10_trimmed.fastq.gz	test_data/kraken_sample10_report
+
+#genome search and download
+# required
+email = 
+#optional - recommended for faster downloads - remove it if not used
+ncbi_api = 
+
+# Bowtie Options
+batch_size = 16
+bowtie_retries = 3
+
+# Pmdtools options
+# NOTE: pmd library type can be only three options - UDGplus |  UDGhalf | UDGminus
+pmd_threshold = 3
+min_fraction = 0.05
+pmd_library_type = UDGhalf 
+
+# pydamage options
+process = 16
+
+script_dir = scripts/
+
+# plotting after grouping by rank
+
+#options: yes or no
+agglomerate_and_plot = yes
+#options: phylum, class, order, family, genus
+rank = family
+# options: species or genus - recommended genus
+abundance_by = genus
