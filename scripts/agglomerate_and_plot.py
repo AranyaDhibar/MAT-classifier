@@ -46,15 +46,17 @@ def rank_name2(species, rank):
 def grouping_by_abundance(df, rank, abundance_by):
     if abundance_by == "species":
         grouped_df = df.groupby(rank)["species_abundance"].sum().reset_index()
+        grouped_df.rename(columns={"species_abundance": "abundance_value"}, inplace=True)
     elif abundance_by == "genus":
         grouped_df = df.groupby(rank)["Genus"].nunique().reset_index()
+        grouped_df.rename(columns={"Genus": "abundance_value"}, inplace=True)
 
     return grouped_df
 
 def merge_dfs(dfs, rank):
     merged_df = None
     for key, df in dfs.items():
-        df.rename(columns={"species_abundance": key}, inplace=True)
+        df.rename(columns={"abundance_value": key}, inplace=True)
         if merged_df is None:
             merged_df = df.copy()
         else:

@@ -351,6 +351,9 @@ def main():
     start_time = time.time()
     try:
         samples, options = parse_config(args.config_file)
+        for sample in samples:
+            sample["fastq_file"] = os.path.abspath(sample["fastq_file"])
+            sample["kraken_report"] = os.path.abspath(sample["kraken_report"])        
     except ValueError as e:
         print(f"\nConfiguration Error: {e}\n", file=sys.stderr)
         sys.exit(1) 
@@ -361,6 +364,9 @@ def main():
     
     global script_dir
     script_dir = os.path.abspath(options.get("script_dir"))
+    if not os.path.isdir(script_dir):
+        print(f"ERROR: script_dir path does not exist: {script_dir}")
+        sys.exit(1)
 
     try:
         if "genome" in forced_steps or not os.path.exists("genome_fetch.finish"):

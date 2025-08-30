@@ -29,12 +29,13 @@ If you use MAT-classifier in your work, please cite the following paper: <to be 
    ```
 4. Clone this repository and create a new conda environment using the environment.yml file:
    ```
-   git clone <link_to_beupdated>
+   git clone https://github.com/AranyaDhibar/MAT-classifier.git
    cd MAT-classifier
    conda env create -f environment.yml
    ```
 5. As of version 1.0.0, Kaleido (a package used by MAT-classifer's graphical modules) requires Chrome to be installed. If you already have Chrome on your system, Kaleido should find it; otherwise, you can install a compatible Chrome version using the kaleido_get_chrome command:
    ```
+   conda activate mat_classifier
    kaleido_get_chrome
    ```
 
@@ -47,7 +48,7 @@ To illustrate the usage of MAT-classifier, we provide instructions to donwload t
    ```
 
 2. Build Kraken2 database as per your requirement. We recommend to check the prebuilt databases available [here](https://benlangmead.github.io/aws-indexes/) which can save effort and time. To build a custom database, please refer to the [Kraken2 manual](https://github.com/DerrickWood/kraken2/wiki/Manual). 
-3. Run Kraken2 on the trimmed reads. We included a example script `kraken_run.sh` for running Kraken2 on multiple samples. Make sure to use the flag `--report-minimizer-data` in Kraken2 command, otherwise MAT-classifier analysis will not run successfully. We have included the Kraken2 reports of the test dataset in the `test_data` folder. 
+3. Run Kraken2 on the trimmed reads. We included a example script `kraken_run.sh` for running Kraken2 on multiple samples. Make sure to use the flag `--report-minimizer-data` in Kraken2 command, otherwise MAT-classifier analysis will not run successfully. You can download the Kraken2 reports of the test dataset as per the instructions in the `test_data` folder. 
 4. Update the `config.txt` file with appropriate paths and parameters (see [Config](#config-options) section). 
 5. Run MAT-classifier using the command below:
    ```
